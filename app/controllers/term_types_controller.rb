@@ -1,0 +1,2 @@
+class TermTypesController < ApplicationController
+end
