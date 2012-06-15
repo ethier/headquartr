@@ -7,7 +7,6 @@ gem 'rails', '3.2.6'
 
 gem 'sqlite3'
 
-
 # Gems used only for assets and not required
 # in production environments by default.
 group :assets do
@@ -34,6 +33,8 @@ group :production do
 
   # Deploy with Capistrano
   # gem 'capistrano'
+
+  # gem mysql2
 end
 
 # To use debugger
@@ -42,6 +43,7 @@ end
 group :development do
   gem 'pry-rails'
   gem 'diffy'
+  gem 'debugger'
 end
 
 gem 'devise'
@@ -51,3 +53,5 @@ gem 'less-rails-bootstrap'
 gem 'geocoder'
 gem 'gmaps4rails'
 gem 'carrierwave'
+gem 'omniauth'
+gem 'omniauth-twitter'

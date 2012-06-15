@@ -36,4 +36,7 @@ Headquartr::Application.configure do
   config.assets.debug = true
 
   config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+
+  TWITTER_KEY = 'oYmiuEswiTi50uHk6obS3w'
+  TWITTER_SECRET = '16Mp82oMnqfAc44tQlHT8765f8dri11ExRsKGdBllc'
 end
