@@ -1,0 +1,11 @@
+<%= simple_form_for(@listing, :html => {:class => 'well'}) do |f| %>
+  <%#= f.error_messages %>
+
+  <%= f.collection_select :term_type_id, TermType.all, :id, :name, :required => true %>
+  <%= f.collection_select :housing_type_id, HousingType.all, :id, :name, :required => true %>
+  <%= f.collection_select :utilities_type_id, UtilitiesType.all, :id, :name, :required => true %>
+  <%= f.collection_select :laundry_type_id, LaundryType.all, :id, :name, :required => true %>
+
+  <%= f.button :submit, t(:list), :class => 'btn' %>
+
+<% end %>

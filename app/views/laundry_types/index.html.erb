@@ -1,0 +1,3 @@
+<% title(I18n.t("types.laundry"), I18n.t("type").pluralize) %>
+
+<%= render :partial => "shared/type_index", :locals => {:new_type => t(:new) + ' ' + t(:laundry) + ' ' + t(:type), :new_type_path => new_laundry_type_path} %>

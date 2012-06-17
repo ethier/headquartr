@@ -48,6 +48,7 @@ end
 
 gem 'devise'
 gem 'cancan'
+gem 'rolify'
 gem 'simple_form'
 gem 'less-rails-bootstrap'
 gem 'geocoder'

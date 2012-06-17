@@ -6,6 +6,7 @@ Headquartr::Application.routes.draw do
   root :to => "home#index"
 
   resources :listings
+  resources :laundry_types
 
   match '/help' => 'static#help', :as => :help
 

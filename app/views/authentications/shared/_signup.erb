@@ -1,0 +1,41 @@
+<div class="row-fluid">
+  <% if @authentications %>
+    <% unless @authentications.empty? %>
+      <p><%= action %> <%= I18n.t("authentication.to_this_account_using") %></p>
+      <div class="authentications">
+        <% for authentication in @authentications %>
+          <div class="authentication">
+            <%= image_tag "#{authentication.provider}_32.png", :size => "32x32" %>
+            <div class="provider"><%= authentication.provider.titleize %></div>
+            <div class="uid"><%= authentication.uid %></div>
+            <%= link_to "X", authentication, :confirm => I18n.t("authentication.remove_auth_option"), :method => :delete, :class => "remove" %>
+          </div>
+        <% end %>
+      </div>
+    <% end %>
+    <p><%= I18n.t("authentication.add_another_service") %></p>
+  <% else %>
+    <p><%= action %> <%= I18n.t("authentication.sign_in_through_these_services") %></p>
+  <% end %>
+
+  <p>
+    <a class="btn-auth btn-twitter" href="/auth/twitter">
+      <%= action %> <%= I18n.t("with") %> <b>Twitter</b>
+    </a>
+  </p>
+  <p>
+    <a class="btn-auth btn-facebook" href="/auth/facebook">
+      <%= action %> <%= I18n.t("with") %> <b>Facebook</b>
+    </a>
+  </p>
+  <p>
+    <a class="btn-auth btn-google" href="/auth/google_apps">
+      <%= action %> <%= I18n.t("with") %> <b>Google</b>
+    </a>
+  </p>
+  <p>
+    <a class="btn-auth btn-openid" href="/auth/open_id">
+      <%= action %> <%= I18n.t("with") %> <b>OpenID</b>
+    </a>
+  </p>
+</div>

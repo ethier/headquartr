@@ -1,0 +1,9 @@
+<%= simple_form_for(@type_object, :html => {:class => 'well'}) do |f| %>
+  <%#= f.error_messages %>
+
+  <%= f.input :name, :required => true %>
+  <%= f.input :description, :required => true %>
+
+  <%= f.button :submit, action, :class => 'btn' %>
+
+<% end %>

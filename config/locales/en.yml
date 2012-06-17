@@ -2,4 +2,31 @@
 # See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
 
 en:
-  hello: "Hello world"
+  actions:
+    create: "Create"
+    destroy: "Destroy"
+    edit: "Edit"
+    list: "List"
+    new: "New"
+    show: "Show"
+    view_all: "View all"
+  authentication:
+    add_another_service: "Add another service to sign in with:"
+    remove_option: "Are you sure you want to remove this authentication option?"
+    sign_up: "Sign up"
+    sign_in: "Sign in"
+    sign_out: "Sign out"
+    sign_in_through_these_services: "through one of these services:"
+    to_this_account_using: "to this account using:"
+  help: "Help"
+  home: "Home"
+  listings: "Listings"
+  profile: "Profile"
+  type: "Type"
+  types:
+    housing: "Housing"
+    laundry: "Laundry"
+    pets: "Pets"
+    utilities: "Utilities"
+    term: "Term"
+  with: "with"

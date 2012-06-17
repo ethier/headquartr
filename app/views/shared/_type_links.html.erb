@@ -1,0 +1,5 @@
+<p>
+  <%= link_to I18n.t("actions.edit"), edit_type_path %> |
+  <%= link_to I18n.t("actions.destroy"), @type_object, :confirm => 'Are you sure?', :method => :delete %> |
+  <%= link_to I18n.t("actions.view_all"), view_all_type_path %>
+</p>
