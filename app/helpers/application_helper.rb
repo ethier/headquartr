@@ -5,7 +5,8 @@ module ApplicationHelper
 
   def title(*args)
     page_title = *args.join(' ')
-    content_for(:title) { page_title.to_s }
+
+    content_for(:title) { page_title.join }
   end
 
   def stylesheet(*args)

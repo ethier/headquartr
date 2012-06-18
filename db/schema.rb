@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120615015949) do
+ActiveRecord::Schema.define(:version => 20120618015245) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addressable_id"
@@ -104,7 +104,7 @@ ActiveRecord::Schema.define(:version => 20120615015949) do
     t.integer  "user_id"
     t.integer  "term_type_id"
     t.integer  "housing_type_id"
-    t.integer  "utiltities_type_id"
+    t.integer  "utilities_type_id"
     t.integer  "laundry_type_id"
     t.integer  "pet_type_id"
     t.integer  "rooms"
@@ -119,8 +119,8 @@ ActiveRecord::Schema.define(:version => 20120615015949) do
     t.boolean  "balcony_backyard"
     t.text     "description"
     t.boolean  "active"
-    t.datetime "created_at",         :null => false
-    t.datetime "updated_at",         :null => false
+    t.datetime "created_at",        :null => false
+    t.datetime "updated_at",        :null => false
   end
 
   add_index "listings", ["user_id"], :name => "index_listings_on_user_id"

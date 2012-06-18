@@ -3,7 +3,8 @@
     <h2><%= link_to type.name, type %></h2>
     <div>
       Description: <%= type.description %><br />
-      <%= link_to I18n.t("actions.edit"), [:edit, type] %>
+      <%= link_to I18n.t("actions.edit"), [:edit, type] %> |
+      <%= link_to I18n.t("actions.destroy"), @type_object, :confirm => 'Are you sure?', :method => :delete %>
     </div>
   <% end %>
 </div>
