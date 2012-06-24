@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120618015245) do
+ActiveRecord::Schema.define(:version => 20120623152248) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addressable_id"
@@ -82,6 +82,14 @@ ActiveRecord::Schema.define(:version => 20120618015245) do
 
   add_index "housing_types", ["listing_id"], :name => "index_housing_types_on_listing_id"
 
+  create_table "identities", :force => true do |t|
+    t.string   "name"
+    t.string   "email"
+    t.string   "password_digest"
+    t.datetime "created_at",      :null => false
+    t.datetime "updated_at",      :null => false
+  end
+
   create_table "images", :force => true do |t|
     t.binary   "image"
     t.integer  "imageable_id"
@@ -135,6 +143,19 @@ ActiveRecord::Schema.define(:version => 20120618015245) do
 
   add_index "pet_types", ["listing_id"], :name => "index_pet_types_on_listing_id"
 
+  create_table "rails_admin_histories", :force => true do |t|
+    t.text     "message"
+    t.string   "username"
+    t.integer  "item"
+    t.string   "table"
+    t.integer  "month",      :limit => 2
+    t.integer  "year",       :limit => 5
+    t.datetime "created_at",              :null => false
+    t.datetime "updated_at",              :null => false
+  end
+
+  add_index "rails_admin_histories", ["item", "table", "month", "year"], :name => "index_rails_admin_histories"
+
   create_table "regions", :force => true do |t|
     t.integer  "country_id"
     t.integer  "address_id"
@@ -180,8 +201,11 @@ ActiveRecord::Schema.define(:version => 20120618015245) do
     t.integer  "address_id"
   end
 
+  add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
+  add_index "users", ["confirmation_token"], :name => "index_users_on_confirmation_token", :unique => true
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true
   add_index "users", ["reset_password_token"], :name => "index_users_on_reset_password_token", :unique => true
+  add_index "users", ["unlock_token"], :name => "index_users_on_unlock_token", :unique => true
 
   create_table "utilities_types", :force => true do |t|
     t.integer  "listing_id"

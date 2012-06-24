@@ -1,16 +1,26 @@
 Headquartr::Application.routes.draw do
-  get "home/index"
+  mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
-  devise_for :users
+  devise_for :users, 
+             :controllers => { :registrations => 'registrations', :authentications => 'authentications', :omniauth_callbacks => 'omniauth_callbacks' }
 
-  root :to => "home#index"
-
-  resources :listings
-  resources :laundry_types
-
-  match '/help' => 'static#help', :as => :help
+  #devise_scope :users do
+  #  get 'sign_in', :to => 'sessions#new', :as => :new_session
+  #  get 'sign_out', :to => 'sessions#destroy', :as => :destroy_session
+  #end
 
   match '/auth/:provider/callback' => 'authentications#create'
+
+  resources :listings
+  #resources :authentications
+  #resources :laundry_types
+
+  #get "home/index"
+  root :to => "home#index"
+
+  match '/help' => 'static#help', :as => :help
+  match '/privacy' => 'static#privacy', :as => :privacy
+  match '/terms' => 'static#terms', :as => :terms
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

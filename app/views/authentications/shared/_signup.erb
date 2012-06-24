@@ -19,7 +19,7 @@
   <% end %>
 
   <p>
-    <a class="btn-auth btn-twitter" href="/auth/twitter">
+    <a class="btn-auth btn-twitter" href="<%= user_omniauth_authorize_path(:twitter) %>">
       <%= action %> <%= I18n.t("with") %> <b>Twitter</b>
     </a>
   </p>

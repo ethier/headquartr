@@ -6,6 +6,6 @@
   <%= f.collection_select :utilities_type_id, UtilitiesType.all, :id, :name, :required => true %>
   <%= f.collection_select :laundry_type_id, LaundryType.all, :id, :name, :required => true %>
 
-  <%= f.button :submit, t(:list), :class => 'btn' %>
+  <%= f.button :submit, I18n.t("actions.list"), :class => 'btn' %>
 
 <% end %>
