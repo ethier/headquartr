@@ -22,6 +22,7 @@ en:
   home: "Home"
   listing: "Listing"
   listings: "Listings"
+  one_more_step: 'One more step to complete your registration from %{kind}'
   profile: "Profile"
   type: "Type"
   types:

@@ -14,7 +14,7 @@ class User < ActiveRecord::Base
   has_many :authentications, :dependent => :destroy
 
   def apply_omniauth(omniauth)
-    if omniauth['provider'] == "facebook"
+    if omniauth['provider'] == 'facebook'
       self.email = omniauth['info']['email'] if email.blank?
     end
     authentications.build(:provider => omniauth['provider'], :uid => omniauth['uid'])

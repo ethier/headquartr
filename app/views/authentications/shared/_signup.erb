@@ -1,3 +1,16 @@
+<% if session[:omniauth] %>
+
+  <%= devise_error_messages! %>
+  <%= form_for(resource, :as => resource_name, :html => { :class => 'well' }, :url => registration_path(resource_name)) do |f| %>
+
+    <%= f.label :email %>
+    <%= f.email_field :email %>
+
+    <%= f.button "Sign up", :class => 'btn' %>
+  <% end %>
+
+<% else %>
+
 <div class="row-fluid">
   <% if @authentications %>
     <% unless @authentications.empty? %>
@@ -24,18 +37,14 @@
     </a>
   </p>
   <p>
-    <a class="btn-auth btn-facebook" href="/auth/facebook">
+    <a class="btn-auth btn-facebook" href="<%= user_omniauth_authorize_path(:facebook) %>">
       <%= action %> <%= I18n.t("with") %> <b>Facebook</b>
     </a>
   </p>
   <p>
-    <a class="btn-auth btn-google" href="/auth/google_apps">
+    <a class="btn-auth btn-google" href="<%= user_omniauth_authorize_path(:google_apps) %>">
       <%= action %> <%= I18n.t("with") %> <b>Google</b>
     </a>
   </p>
-  <p>
-    <a class="btn-auth btn-openid" href="/auth/open_id">
-      <%= action %> <%= I18n.t("with") %> <b>OpenID</b>
-    </a>
-  </p>
 </div>
+<% end %>

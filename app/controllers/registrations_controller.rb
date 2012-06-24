@@ -11,6 +11,7 @@ class RegistrationsController < Devise::RegistrationsController
     if session[:omniauth]
       @user.apply_omniauth(session[:omniauth])
       @user.valid?
+      @user
     end
   end
 end

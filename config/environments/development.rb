@@ -35,7 +35,7 @@ Headquartr::Application.configure do
   # Expands the lines which load the assets
   config.assets.debug = true
 
-  config.action_mailer.default_url_options = { :host => 'localhost:3000' }
+  config.action_mailer.default_url_options = { :host => '192.168.0.185:3000' }
 
   ENV['TWITTER_KEY'] = 'qHDXkv0mbSpgbVf4dsJWUg'
   ENV['TWITTER_SECRET'] = 'X2VC87ILO6MPU3zCBO8m38425PWPB7fl4jfQjOudX4'

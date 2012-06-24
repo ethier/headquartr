@@ -23,6 +23,7 @@ class OmniauthCallbacksController < Devise::OmniauthCallbacksController
           else
             user = User.find_by_email(auth_hash['info']['email']) || User.new
             user.apply_omniauth(auth_hash)
+
             if user.save
               flash[:notice] = "Signed in successfully."
               sign_in_and_redirect :user, user
