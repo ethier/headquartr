@@ -1,7 +1,9 @@
 class ListingsController < ApplicationController
-  #before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
 
   def index
+    @addresses = current_user.addresses if current_user
+
     @listings = Listing.all
   end
 
@@ -10,6 +12,8 @@ class ListingsController < ApplicationController
   end
 
   def new
+    @addresses = current_user.addresses if current_user
+
     @listing = Listing.new
   end
 
@@ -24,4 +28,7 @@ class ListingsController < ApplicationController
 
   def destroy
   end
+
+  private
+
 end

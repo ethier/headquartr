@@ -4,18 +4,11 @@ Headquartr::Application.routes.draw do
   devise_for :users, 
              :controllers => { :registrations => 'registrations', :authentications => 'authentications', :omniauth_callbacks => 'omniauth_callbacks' }
 
-  #devise_scope :users do
-  #  get 'sign_in', :to => 'sessions#new', :as => :new_session
-  #  get 'sign_out', :to => 'sessions#destroy', :as => :destroy_session
-  #end
-
   match '/auth/:provider/callback' => 'authentications#create'
 
   resources :listings
-  #resources :authentications
-  #resources :laundry_types
+  resources :addresses
 
-  #get "home/index"
   root :to => "home#index"
 
   match '/help' => 'static#help', :as => :help

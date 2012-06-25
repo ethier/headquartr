@@ -239,7 +239,6 @@ DEPENDENCIES
   omniauth-facebook
   omniauth-google-apps
   omniauth-google-oauth2
-  omniauth-openid
   omniauth-twitter
   pry-rails
   rails (= 3.2.6)

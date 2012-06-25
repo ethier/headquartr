@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120623152248) do
+ActiveRecord::Schema.define(:version => 20120624160902) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addressable_id"
@@ -24,13 +24,13 @@ ActiveRecord::Schema.define(:version => 20120623152248) do
     t.string   "line_three"
     t.string   "appt_no"
     t.string   "postal_zip_code"
-    t.string   "latitude"
-    t.string   "longitude"
+    t.float    "latitude",         :limit => 255
+    t.float    "longitude",        :limit => 255
     t.string   "intersection_one"
     t.string   "intersection_two"
     t.boolean  "active"
-    t.datetime "created_at",       :null => false
-    t.datetime "updated_at",       :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
   end
 
   create_table "authentications", :force => true do |t|

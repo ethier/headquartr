@@ -1,5 +1,5 @@
 <% title "Listings" %>
 
-<p>Hello world!</p>
-
-<p><%= link_to "New Listing", new_listing_path %></p>
+<% if current_user %>
+  <p><%= link_to I18n.t("actions.new") + ' ' + I18n.t("listing"), new_listing_path %></p>
+<% end %>

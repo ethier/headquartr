@@ -23,13 +23,13 @@
       <div class="btn-group pull-right">
         <% if user_signed_in? %>
         <a class="btn dropdown-toggle" data-toggle="dropdown" href="#">
-          <i class="icon-user"></i> <%= current_user %>
+          <i class="icon-user"></i> <%= current_user.email %>
           <span class="caret"></span>
         </a>
         <ul class="dropdown-menu">
-          <li><a href="<%= edit_user_registration_path %>"><%= I18n.t("profile") %></a></li>
+          <li><%= link_to I18n.t("profile"), edit_user_registration_path %></li>
           <li class="divider"></li>
-          <li><a href="<%= destroy_user_session_path %>"><%= I18n.t("authentication.sign_out") %></a></li>
+          <li><%= link_to I18n.t("authentication.sign_out"), destroy_user_session_path, :method => :delete %></li>
         </ul>
         <% else %>
         <a class="btn" href="<%= new_user_session_path %>">
