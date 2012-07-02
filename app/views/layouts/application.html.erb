@@ -71,11 +71,19 @@
             <div class="row-fluid">
 
                 <% if notice %>
-                <p class="notice"><%= notice %></p>
+                  <ul>
+                  <% notice.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                  </ul>
                 <% end %>
 
                 <% if alert %>
-                <p class="alert"><%= alert %></p>
+                <ul>
+                  <% alert.full_messages.each do |msg| %>
+                    <li><%= msg %></li>
+                  <% end %>
+                  </ul>
                 <% end %>
 
                 <%= yield %>

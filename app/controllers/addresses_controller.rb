@@ -13,11 +13,11 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @address = Address.new(params[:book])
+    @address = Address.new(params[:address])
     if @address.save
-
+      flash[:notice] = I18n.t("address") + I18n.t("was") + I18n.t("actions.create").pluralize
     else
-
+      flash[:alert] = @address.errors
     end
 
     redirect_to new_listing_path

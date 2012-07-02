@@ -11,23 +11,22 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120701171600) do
+ActiveRecord::Schema.define(:version => 20120702215859) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addressable_id"
     t.string   "addressable_type"
     t.integer  "country_id"
     t.integer  "region_id"
-    t.string   "line_one"
-    t.string   "line_two"
-    t.string   "line_three"
+    t.string   "address_one"
+    t.string   "address_two"
+    t.string   "address_three"
     t.string   "appt_no"
     t.string   "postal_zip_code"
     t.float    "latitude",         :limit => 255
     t.float    "longitude",        :limit => 255
     t.string   "intersection_one"
     t.string   "intersection_two"
-    t.boolean  "active"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
     t.string   "city"
@@ -55,15 +54,11 @@ ActiveRecord::Schema.define(:version => 20120701171600) do
   add_index "cities", ["region_id"], :name => "index_cities_on_region_id"
 
   create_table "countries", :force => true do |t|
-    t.integer  "address_id"
-    t.string   "name"
-    t.string   "code"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
-    t.string   "iso_name"
+    t.string  "name"
+    t.string  "iso2"
+    t.string  "iso3"
+    t.integer "numcode"
   end
-
-  add_index "countries", ["address_id"], :name => "index_countries_on_address_id"
 
   create_table "flags", :force => true do |t|
     t.integer  "flagable_id"

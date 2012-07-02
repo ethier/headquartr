@@ -45,9 +45,11 @@ group :development do
   gem 'diffy'
   gem 'debugger'
   gem 'thin'
+  gem 'yaml_db'
 end
 
 gem 'rails_admin'
+gem 'highline'
 gem 'devise'
 gem 'cancan'
 gem 'rolify'

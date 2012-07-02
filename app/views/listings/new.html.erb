@@ -2,4 +2,6 @@
 
 <%= render :partial => 'shared/address_index' %>
 
-<%= render 'form' %>
+<% if @addresses && @addresses.count > 0 %>
+  <%= render 'form' %>
+<% end %>
