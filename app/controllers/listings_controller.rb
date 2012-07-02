@@ -1,9 +1,12 @@
 class ListingsController < ApplicationController
+  rescue_from ActiveRecord::RecordNotFound, :with => :render_404
+
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
+  before_filter :find_user_addresses, :only => [:index, :new]
+
+  respond_to :html
 
   def index
-    @addresses = current_user.addresses if current_user
-
     @listings = Listing.all
   end
 
@@ -12,8 +15,7 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @addresses = current_user.addresses if current_user
-
+    @address = Address.new
     @listing = Listing.new
   end
 
@@ -29,6 +31,10 @@ class ListingsController < ApplicationController
   def destroy
   end
 
-  private
+  protected
+
+    def find_user_addresses
+      @addresses = current_user.addresses if current_user
+    end
 
 end

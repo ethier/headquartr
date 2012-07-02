@@ -1,0 +1,11 @@
+  <%= simple_form_for(@address, :html => {:class => 'well'}) do |f| %>
+    <%= f.input :line_one, :required => true %>
+    <%= f.input :line_two %>
+    <%= f.input :line_three %>
+    <%= f.input :appt_no %>
+    <%= f.input :city, :required => true %>
+    <%= f.input :country_id, :collection => Country.all(:order => 'name'), :required => true %>
+    <%= f.input :region_id, :collection => Region.all(:order => 'name'), :required => true %>
+    <%= f.input :postal_zip_code, :required => true %>
+    <%= f.button :submit, :class => 'btn' %>
+  <% end %>

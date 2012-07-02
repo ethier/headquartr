@@ -11,14 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120624160902) do
+ActiveRecord::Schema.define(:version => 20120701171600) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addressable_id"
     t.string   "addressable_type"
     t.integer  "country_id"
     t.integer  "region_id"
-    t.integer  "city_id"
     t.string   "line_one"
     t.string   "line_two"
     t.string   "line_three"
@@ -31,6 +30,7 @@ ActiveRecord::Schema.define(:version => 20120624160902) do
     t.boolean  "active"
     t.datetime "created_at",                      :null => false
     t.datetime "updated_at",                      :null => false
+    t.string   "city"
   end
 
   create_table "authentications", :force => true do |t|
@@ -60,6 +60,7 @@ ActiveRecord::Schema.define(:version => 20120624160902) do
     t.string   "code"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "iso_name"
   end
 
   add_index "countries", ["address_id"], :name => "index_countries_on_address_id"
@@ -162,6 +163,7 @@ ActiveRecord::Schema.define(:version => 20120624160902) do
     t.string   "name"
     t.datetime "created_at", :null => false
     t.datetime "updated_at", :null => false
+    t.string   "abbr"
   end
 
   add_index "regions", ["address_id"], :name => "index_regions_on_address_id"

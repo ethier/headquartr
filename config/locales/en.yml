@@ -22,6 +22,7 @@ en:
   home: "Home"
   listing: "Listing"
   listings: "Listings"
+  address: "Address"
   one_more_step: 'One more step to complete your registration from %{kind}'
   profile: "Profile"
   type: "Type"
@@ -31,4 +32,5 @@ en:
     pets: "Pets"
     utilities: "Utilities"
     term: "Term"
+  you_need_to_add_an_address: "You need to add an address before you can create a listing."
   with: "with"

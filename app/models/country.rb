@@ -1,4 +1,9 @@
 class Country < ActiveRecord::Base
-  belongs_to :address
-  attr_accessible :code, :name
+  has_many :regions, :order => "name ASC"
+
+  validates :name, :iso_name, :presence => true
+
+  def to_s
+    name
+  end
 end
