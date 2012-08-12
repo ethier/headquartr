@@ -1,4 +1,6 @@
 class Region < ActiveRecord::Base
+  default_scope :order => 'abbr ASC'
+
   belongs_to :country
 
   validates :country, :name, :presence => true

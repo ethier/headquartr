@@ -70,21 +70,7 @@
 
             <div class="row-fluid">
 
-                <% if notice %>
-                  <ul>
-                  <% notice.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                  <% end %>
-                  </ul>
-                <% end %>
-
-                <% if alert %>
-                <ul>
-                  <% alert.full_messages.each do |msg| %>
-                    <li><%= msg %></li>
-                  <% end %>
-                  </ul>
-                <% end %>
+                <%= flash_messages %>
 
                 <%= yield %>
             </div>

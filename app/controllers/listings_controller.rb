@@ -1,4 +1,6 @@
 class ListingsController < ApplicationController
+  load_and_authorize_resource
+
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
 
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
@@ -19,17 +21,17 @@ class ListingsController < ApplicationController
     @listing = Listing.new
   end
 
-  def create
-  end
+  # def create
+  # end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-  end
+  # def update
+  # end
 
-  def destroy
-  end
+  # def destroy
+  # end
 
   protected
 

@@ -1,4 +1,6 @@
 class AddressesController < ApplicationController
+  load_and_authorize_resource
+
   rescue_from ActiveRecord::RecordNotFound, :with => :render_404
 
   before_filter :authenticate_user!, :only => [:new, :create, :edit, :update, :destroy]
@@ -13,24 +15,24 @@ class AddressesController < ApplicationController
   end
 
   def create
-    @address = Address.new(params[:address])
     if @address.save
       flash[:notice] = I18n.t("address") + I18n.t("was") + I18n.t("actions.create").pluralize
     else
       flash[:alert] = @address.errors
     end
 
-    redirect_to new_listing_path
+    render :action => new, :controller => Listing
+    # redirect_to new_listing_path, :params => params
   end
 
-  def edit
-  end
+  # def edit
+  # end
 
-  def update
-  end
+  # def update
+  # end
 
-  def destroy
-  end
+  # def destroy
+  # end
 
   private
 

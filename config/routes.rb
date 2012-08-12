@@ -1,15 +1,20 @@
 Headquartr::Application.routes.draw do
   mount RailsAdmin::Engine => '/admin', :as => 'rails_admin'
 
+  root :to => "home#index"
+
   devise_for :users, 
-             :controllers => { :registrations => 'registrations', :authentications => 'authentications', :omniauth_callbacks => 'omniauth_callbacks' }
+             :controllers => { :registrations => 'registrations',
+                               :authentications => 'authentications',
+                               :confirmations => 'confirmations',
+                               :omniauth_callbacks => 'omniauth_callbacks' }
 
   match '/auth/:provider/callback' => 'authentications#create'
 
   resources :listings
   resources :addresses
 
-  root :to => "home#index"
+  match '/regions' => 'regions#index', :as => :regions
 
   match '/help' => 'static#help', :as => :help
   match '/privacy' => 'static#privacy', :as => :privacy

@@ -8,17 +8,31 @@ class Address < ActiveRecord::Base
             :latitude, :longitude, :intersection_one, :intersection_two, 
             :presence => true
 
-  before_validation :get_latitude_and_longitude, :get_intersection
+  # before_validation :get_latitude_and_longitude, :get_intersection
+  after_validation :get_intersection
+
+  acts_as_gmappable
+
+  geocoded_by :address
 
   def to_s
     "#{line_one}, #{line_two}" #{address1}"
   end
 
-  def clone
-    self.class.new(self.attributes.except('id', 'updated_at', 'created_at'))
-  end
+  protected
 
-  def get_latitude_and_longitude
-    # Add some geocoder magic here.
-  end
+    def clone
+      self.class.new(self.attributes.except('id', 'updated_at', 'created_at'))
+    end
+
+    # def get_latitude_and_longitude
+    #   # Add some geocoder magic here.
+    # end
+
+    def get_intersection
+    end
+
+    def address
+      [address_one, city, region, country].compact.join(', ')
+    end
 end

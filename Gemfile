@@ -1,6 +1,6 @@
 source 'https://rubygems.org'
 
-gem 'rails', '3.2.6'
+gem 'rails', '3.2.7'
 
 # Bundle edge Rails instead:
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
@@ -54,6 +54,8 @@ gem 'devise'
 gem 'cancan'
 gem 'rolify'
 gem 'simple_form'
+gem 'client_side_validations'
+gem 'client_side_validations-simple_form'
 gem 'less-rails-bootstrap'
 gem 'geocoder'
 gem 'gmaps4rails'

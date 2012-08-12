@@ -17,4 +17,10 @@ module ApplicationHelper
     content_for(:head) { javascript_include_tag(*args) }
   end
 
+  def flash_messages
+    flash.each do |msg_type, text|
+      concat(content_tag :div, text, :class => "flash #{msg_type}")
+    end
+    nil
+  end
 end

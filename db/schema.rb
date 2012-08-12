@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120702215859) do
+ActiveRecord::Schema.define(:version => 20120721155132) do
 
   create_table "addresses", :force => true do |t|
     t.integer  "addressable_id"
@@ -175,8 +175,8 @@ ActiveRecord::Schema.define(:version => 20120702215859) do
   add_index "term_types", ["listing_id"], :name => "index_term_types_on_listing_id"
 
   create_table "users", :force => true do |t|
-    t.string   "email",                  :default => "", :null => false
-    t.string   "encrypted_password",     :default => "", :null => false
+    t.string   "email",                  :default => "",    :null => false
+    t.string   "encrypted_password",     :default => "",    :null => false
     t.string   "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
@@ -193,9 +193,10 @@ ActiveRecord::Schema.define(:version => 20120702215859) do
     t.string   "unlock_token"
     t.datetime "locked_at"
     t.string   "authentication_token"
-    t.datetime "created_at",                             :null => false
-    t.datetime "updated_at",                             :null => false
+    t.datetime "created_at",                                :null => false
+    t.datetime "updated_at",                                :null => false
     t.integer  "address_id"
+    t.boolean  "admin",                  :default => false
   end
 
   add_index "users", ["authentication_token"], :name => "index_users_on_authentication_token", :unique => true
