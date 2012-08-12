@@ -1,7 +1,0 @@
-<% if @addresses && @addresses.count > 0 %>
-  <%= @addresses.each do |address| %>
-  <% end %>
-<% else %>
-  <p class="lead"><%= I18n.t("you_need_to_add_an_address") %></p>
-  <%= render :partial => 'shared/address_form' %>
-<% end %>

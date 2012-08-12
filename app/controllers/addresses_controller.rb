@@ -12,6 +12,23 @@ class AddressesController < ApplicationController
   end
 
   def new
+    @address = Address.new
+
+    if request.location.data['country_code'] != '' and
+        request.location.data['country_code'] != 'RD'
+      @country = Country.find_by_iso2(request.location.data['country_code'])
+    else
+      @country = Country.find(39)
+    end
+
+    if request.location.data['region_code'] != ''
+      @region = Region.find_by_code(request.location.data['region_code'])
+    else
+      @region = Region.find(1)
+    end
+
+    # Check request to see if it is valid.
+    @json = request.location.data.to_json
   end
 
   def create
@@ -21,8 +38,7 @@ class AddressesController < ApplicationController
       flash[:alert] = @address.errors
     end
 
-    render :action => new, :controller => Listing
-    # redirect_to new_listing_path, :params => params
+    redirect_to :controller => :listings, :action => :new
   end
 
   # def edit

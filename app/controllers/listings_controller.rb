@@ -17,8 +17,13 @@ class ListingsController < ApplicationController
   end
 
   def new
-    @address = Address.new
-    @listing = Listing.new
+    if (@addresses = current_user.addresses).count > 0
+      @listing = Listing.new
+      render
+    else
+      flash[:notice] = I18n.t("you_need_to_add_an_address")
+      redirect_to :controller => :addresses, :action => :new
+    end
   end
 
   # def create

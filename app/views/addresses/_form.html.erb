@@ -1,5 +1,4 @@
   <%= simple_form_for(@address, :html => {:class => 'well'}, :validate => true) do |f| %>
-  <%#= simple_form_for(@address, :html => {:class => 'well'}) do |f| %>
     <div class="row-fluid">
       <div class="span4">
         <%= f.input :address_one, :required => true %>
@@ -8,10 +7,9 @@
         <%= f.input :appt_no %>
       </div>
       <div class="span4">
-        <%# debugger %>
         <%= f.input :city, :required => true, :value => request.location.city %>
-        <%= f.input :country_id, :collection => Country.all(:order => 'name'), :selected => (Country.find_by_iso2(request.location.country_code) || 39), :required => true %>
-        <%= f.input :region_id, :collection => Region.all(:order => 'name'), :required => true, :label => 'State / Province' %>
+        <%= f.input :country_id, :collection => Country.all(:order => 'name'), :selected => @country, :required => true %>
+        <%= f.input :region_id, :collection => Region.all(:order => 'name'), :selected => @region, :required => true, :label => 'State / Province' %>
         <%= f.input :postal_zip_code, :required => true %>
       </div>
       <div class="span4">
@@ -20,4 +18,15 @@
       </div>
     </div>
     <%= f.button :submit, :class => 'btn btn-primary' %>
+  <% end %>
+
+  <%= gmaps4rails(@json) %>
+
+  <% content_for :scripts do %>
+    <script>
+      Gmaps4Rails.callback = function() {
+        alert('hi');
+        Gmaps4Rails.replaceMarkers([{"lng": "-92.5294574", "lat": "45.1969796"}]);
+      };
+    </script>
   <% end %>
