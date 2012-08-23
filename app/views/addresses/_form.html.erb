@@ -1,21 +1,17 @@
-  <%= simple_form_for([@addressable, @address], :html => {:class => 'well'}, :validate => true) do |f| %>
-    <div class="row-fluid">
-      <div class="span3">
-        <%= f.input :address_one, :required => true %>
-        <%= f.input :address_two %>
-        <%= f.input :address_three %>
-        <%= f.input :appt_no %>
-      </div>
-      <div class="span3">
-        <%= f.input :city, :required => true, :input_html => { :value => @location['city'] } %>
-        <%= f.input :country_id, :as => :select, :collection => Country.all(:order => 'name'), :selected => @country.id, :required => true %>
-        <%= f.input :region_id, :as => :select, :collection => Region.all(:order => 'name'), :selected => @region.id, :required => true, :label => 'State / Province' %>
-        <%= f.input :postal_zip_code, :required => true, :label => 'Postal / Zip Code' %>
-      </div>
-      <div class="span6">
-        <%= gmaps4rails(@location_json) %>
-      </div>
+  <%= simple_form_for([@addressable, @address], :validate => true) do |f| %>
+    <div class="span3">
+      <%= f.input :address_one, :required => true %>
+      <%#= f.input :address_two %>
+      <%#= f.input :address_three %>
+      <%#= f.input :appt_no %>
+      <%= f.input :city, :required => true, :input_html => { :value => @city } %>
+      <%= f.input :country_id, :as => :select, :collection => Country.all(:order => 'name'), :selected => @country.id, :required => true %>
+      <%= f.input :region_id, :as => :select, :collection => Region.all(:order => 'name'), :selected => @region.id, :required => true, :label => 'State / Province' %>
+      <%= f.input :postal_zip_code, :required => true, :label => 'Postal / Zip Code' %>
       <%= f.button :submit, :class => 'btn btn-primary' %>
+    </div>
+    <div class="span6">
+      <%= gmaps4rails(@location_json) %>
     </div>
   <% end %>
 

@@ -29,7 +29,7 @@ class AddressesController < ApplicationController
     end
 
     if location['city'] == ''
-      location['city'] = 'Toronto'
+      @city = location['city'] = 'Toronto'
     end
 
     # Check request to see if it is valid.

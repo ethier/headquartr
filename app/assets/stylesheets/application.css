@@ -10,6 +10,7 @@
  *
  *= require_self
  *= require twitter/bootstrap
+ *= require twitter/bootstrap-responsive
  *= require_tree .
  */
 
@@ -17,8 +18,9 @@ body {
 padding-top: 60px;
 padding-bottom: 40px;
 }
-.sidenav {
-width: 106px;
+.navbar .container {
+height:45px;
+padding-top:2px;
 }
 h2 {
 margin-top:-8px !important;
