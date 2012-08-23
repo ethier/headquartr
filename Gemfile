@@ -48,7 +48,7 @@ group :development do
   gem 'yaml_db'
 end
 
-gem 'rails_admin'
+# gem 'rails_admin'
 gem 'highline'
 gem 'devise'
 gem 'cancan'
@@ -65,3 +65,5 @@ gem 'omniauth-twitter'
 gem 'omniauth-facebook'
 gem 'omniauth-google-oauth2'
 gem 'omniauth-google-apps'
+gem 'redis-rails'
+gem 'sidekiq'

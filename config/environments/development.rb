@@ -39,4 +39,7 @@ Headquartr::Application.configure do
 
   ENV['TWITTER_KEY'] = 'qHDXkv0mbSpgbVf4dsJWUg'
   ENV['TWITTER_SECRET'] = 'X2VC87ILO6MPU3zCBO8m38425PWPB7fl4jfQjOudX4'
+
+  # Redis configuration
+  config.cache_store = :redis_store, 'redis://localhost:6379/'
 end

@@ -14,21 +14,28 @@ class AddressesController < ApplicationController
   def new
     @address = Address.new
 
-    if request.location.data['country_code'] != '' and
-        request.location.data['country_code'] != 'RD'
-      @country = Country.find_by_iso2(request.location.data['country_code'])
-    else
+    location = request.location.data
+
+    if location['country_code'] == '' or
+        location['country_code'] == 'RD'
       @country = Country.find(39)
+      location['country_name'] = @country.name
+      location['country_code'] = @country.iso2
     end
 
-    if request.location.data['region_code'] != ''
-      @region = Region.find_by_code(request.location.data['region_code'])
-    else
+    if location['region_code'] == ''
       @region = Region.find(1)
+      location['region_code'] = @region.abbr 
+    end
+
+    if location['city'] == ''
+      location['city'] = 'Toronto'
     end
 
     # Check request to see if it is valid.
-    @json = request.location.data.to_json
+    # @location = location
+    # @location_json = location.to_json
+    @location_json = location.to_gmaps4rails
   end
 
   def create
